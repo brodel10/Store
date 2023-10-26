@@ -8,6 +8,7 @@ import {
   CardMedia,
   Typography,
 } from "@mui/material";
+import { Link } from "react-router-dom";
 import { Product } from "../../app/models/product";
 
 interface ProductCardProps {
@@ -29,7 +30,6 @@ const ProductCard = (props: ProductCardProps) => {
           titleTypographyProps={{
             sx: {
               fontWeight: "bold",
-              color: "primary.main",
             },
           }}
         />
@@ -51,8 +51,16 @@ const ProductCard = (props: ProductCardProps) => {
           </Typography>
         </CardContent>
         <CardActions>
-          <Button size="small">Add to cart</Button>
-          <Button size="small">View</Button>
+          <Button size="small" color="secondary">
+            Add to cart
+          </Button>
+          <Button
+            size="small"
+            color="secondary"
+            component={Link}
+            to={`/catalog/${product?.id}`}>
+            View
+          </Button>
         </CardActions>
       </Card>
     </>
